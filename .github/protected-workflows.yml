@@ -1,0 +1,24 @@
+# Fallback rule in case nothing specific is set.
+anyEvent:
+ trustOrgMembers: true
+ trustCollaborators: true
+
+events:
+  push: 
+    - &disallow_workflow_changes
+      trustAnyone: true
+      paths:
+        disallowed:
+          - ".github/**"
+    - &allow_workflow_changes
+      trustCollaborators: true
+      paths:
+        allowed:
+          - ".github/**"
+  pull_request:
+    - *disallow_workflow_changes
+    - *allow_workflow_changes
+  pull_request_target:
+    - *disallow_workflow_changes
+    - *allow_workflow_changes
+ 
