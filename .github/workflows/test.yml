@@ -7,6 +7,13 @@ env:
   REGISTRY: ghcr.io
 
 jobs:
-  test-and-build:
-    uses: alexandrovas/workflows/.github/workflows/test.yml@main
-    secrets: inherit
+  test:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v3
+      - name: test
+        run: |
+          echo "Testing"
