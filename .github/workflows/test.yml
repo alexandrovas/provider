@@ -3,6 +3,7 @@ name: Provider Test
 on:
   push:
   pull_request:
+  pull_request_target:
 
 env:
   REGISTRY: ghcr.io
