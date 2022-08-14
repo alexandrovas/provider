@@ -2,12 +2,11 @@ name: Provider Test
 
 on:
   push:
-    branches:
 
 env:
   REGISTRY: ghcr.io
 
 jobs:
   test-and-build:
-    uses: alexandrovas/workflows/test.yml@main
+    uses: alexandrovas/workflows/.github/workflows/test.yml@main
     secrets: inherit
